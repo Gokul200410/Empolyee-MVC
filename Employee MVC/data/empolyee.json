@@ -1,0 +1,18 @@
+[
+  {
+    "id": "01",
+    "name": "D.Gokul",
+    "age": "21",
+    "designation": "webdevloper",
+    "salary": "100000",
+    "experience": "4"
+  },
+  {
+    "id": "02",
+    "name": "Gokul D",
+    "age": "22",
+    "designation": "devloper",
+    "salary": "15000",
+    "experience": "1"
+  }
+]

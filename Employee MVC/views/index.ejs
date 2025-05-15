@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Empolyee Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gray-600 p-6 text-white text-center">
+        <h1 class="text-3xl font-bold">Empolyee Management Portal</h1>
+        <p class="text-sm mt-2">Manage Empolyee Data Easily</p>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-grow p-8">
+        <!-- Form to Search Empolyee -->
+        <section class="max-w-3xl mx-auto mb-10">
+            <form action="/search-empolyee" method="GET" class="flex gap-4">
+                <input 
+                    type="number" 
+                    name="id" 
+                    placeholder="Enter ID..." 
+                    class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" 
+                    required
+                >
+                <button 
+                    type="submit" 
+                    class="bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-lg font-semibold"
+                >
+                    Search
+                </button>
+            </form>
+        </section>
+
+        <!-- Table of Empolyees -->
+        <section class="max-w-5xl mx-auto">
+            <h2 class="text-2xl font-semibold mb-4">All Empolyees</h2>
+            <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+                <table class="w-full table-auto text-left">
+                    <thead class="bg-skyblue-50">
+                        <tr>
+                            <th class="p-4">Id</th>
+                            <th class="p-4">Name</th>
+                            <th class="p-4">Age</th>
+                            <th class="p-4">Designation</th>
+                            <th class="p-4">Salary</th>
+                            <th class="p-4">Experience</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% empolyee.forEach(empolyee => { %>
+                        <tr class="border-t">
+                            <td class="p-4"><%= empolyee.id %></td>
+                            <td class="p-4"><%= empolyee.name %></td>
+                            <td class="p-4"><%= empolyee.age %></td>
+                            <td class="p-4"><%= empolyee.designation %></td>
+                            <td class="p-4"><%= empolyee.salary %></td>
+                            <td class="p-4"><%= empolyee.experience %></td>
+                            <td class="p-4">
+                                <form action="/delete-empolyee/<%= empolyee.id %>" method="POST">
+                                    <button 
+                                        type="submit" 
+                                        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
+                                    >
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Form to Add Empolyee -->
+        <section class="max-w-3xl mx-auto mt-12">
+            <h2 class="text-2xl font-semibold mb-4">Add New Empolyee</h2>
+            <form action="/submit-empolyee" method="POST" class="space-y-6 bg-white p-8 rounded-lg shadow-md">
+                
+                <div class="flex flex-col">
+                    <label for="rollNo" class="mb-1 font-semibold">ID</label>
+                    <input type="number" id="id" name="id" required class="p-3 border rounded-lg">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="name" class="mb-1 font-semibold">Name</label>
+                    <input type="text" id="name" name="name" required class="p-3 border rounded-lg">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="age" class="mb-1 font-semibold">Age</label>
+                    <input type="number" id="age" name="age" required class="p-3 border rounded-lg">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="designation" class="mb-1 font-semibold">Designation</label>
+                    <input id="designation" name="designation" required class="p-3 border rounded-lg"></textarea>
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="salary" class="mb-1 font-semibold">Salary</label>
+                    <input type="number" id="salary" name="salary" class="p-3 border rounded-lg">
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="experience" class="mb-1 font-semibold">Experience</label>
+                    <input type="number" id="experience" name="experience" required class="p-3 border rounded-lg">
+                </div>
+
+                <button 
+                    type="submit" 
+                    class="w-full bg-violet-500 hover:bg-violet-600 text-white py-3 rounded-lg font-semibold"
+                >
+                    Submit Empolyee
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-600 text-white text-center p-4">
+        <p>&copy; 2025 Empolyee Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

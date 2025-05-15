@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Empolyee Found</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-green-600 p-6 text-white text-center">
+        <h1 class="text-3xl font-bold">Empolyee Found</h1>
+        <p class="text-sm mt-2">Here are the details of the searched empolyee</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center p-8">
+        <div class="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+            <h2 class="text-2xl font-bold mb-6 text-center text-green-600">Empolyee Details</h2>
+
+            <div class="space-y-4">
+                <div>
+                    <p class="font-semibold">Id:</p>
+                    <p class="text-gray-700"><%= empolyee.id %></p>
+                </div>
+
+                <div>
+                    <p class="font-semibold">Name:</p>
+                    <p class="text-gray-700"><%= empolyee.name %></p>
+                </div>
+
+                <div>
+                    <p class="font-semibold">Age:</p>
+                    <p class="text-gray-700"><%= empolyee.age %></p>
+                </div>
+
+                <div>
+                    <p class="font-semibold">Designation:</p>
+                    <p class="text-gray-700"><%= empolyee.designation %></p>
+                </div>
+
+                <div>
+                    <p class="font-semibold">Salary:</p>
+                    <p class="text-gray-700"><%= empolyee.salary %></p>
+                </div>
+                <div>
+                    <p class="font-semibold">Experience:</p>
+                    <p class="text-gray-700"><%= empolyee.experience %></p>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-center">
+                <a href="/" class="bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-6 rounded-lg font-semibold">
+                    Go Back
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
